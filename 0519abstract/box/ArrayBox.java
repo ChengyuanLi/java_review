@@ -38,6 +38,7 @@ public class ArrayBox implements Box{
     private void copy(Object[] source, int start, Object[] target, int begin, int length) {
         int sIndex = start;
         int tIndex = begin;
+        int count = 0;
         while (true) {
             if (count++ == length) {
                 break;
