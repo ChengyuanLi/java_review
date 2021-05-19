@@ -1,4 +1,4 @@
-class ArrayBox {
+public class ArrayBox {
     private Object[] elements;
     private int count = 0;
     public ArrayBox() {

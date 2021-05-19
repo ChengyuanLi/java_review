@@ -6,8 +6,8 @@ public class Browser {
         return b;
     }
 
-    public void show() {
-
+    public void showView(View view) {
+        view.show();
     }
 
 }
