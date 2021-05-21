@@ -1,8 +1,12 @@
 package com.test;
-import  com.domain.Card;
+import  com.util.*;
 public class TestMain {
 	public static void main(String[] args) {
-		Card card = new Card();
+		Box box = new LinkedBox();
+		box.add("lcy1");
+		box.add("lcy2");
+		box.add("lcy3");
+		System.out.println(box.size());
 	}
 	
 }
