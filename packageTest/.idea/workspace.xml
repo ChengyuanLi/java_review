@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c52bc454-6059-479e-8fbe-a28b5fa78d3c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/util/Box.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/util/LinkedBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../0520package/com/domain/Card.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../0520package/com/domain/Card.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../0520package/com/util/LinkedBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/../0520package/com/util/LinkedBox.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../0520package/com/util/LinkedBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/../0520package/com/util/LinkedBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +85,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -131,7 +123,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1621610254268</updated>
-      <workItem from="1621610256008" duration="350000" />
+      <workItem from="1621610256008" duration="1093000" />
     </task>
     <servers />
   </component>
