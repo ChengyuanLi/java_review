@@ -37,8 +37,20 @@ public class ArrayBox implements Box{
     }
 
     private void copyArray(Object[] target, int targetStart, Object[] source, int sourceStart, int copyLength){
-        for (int i = 0; i < copyLength; i++) {
-            target[targetStart + i] = source[sourceStart + i];
+        int sIndex = sourceStart;
+        int tIndex = targetStart;
+        int count = 0;
+        while (true) {
+            if (count++ == copyLength) {
+                break;
+            }
+            if (sIndex == source.length) {
+                break;
+            }
+            if (tIndex == target.length) {
+                break;
+            }
+            target[tIndex ++] = source[sIndex ++];
         }
     }
 
@@ -83,7 +95,7 @@ public class ArrayBox implements Box{
     public Object remove(int i) {
         checkIndex(i);
         Object result = this.elements[i];
-        copyArray(elements, i, elements, i + 1, elements.length - i);
+        copyArray(elements, i, elements, i + 1, elements.length - i - 1);
         elements[count - 1] = null;
         count --;
         return result;
@@ -102,9 +114,7 @@ public class ArrayBox implements Box{
     @Override
     public Object[] toArray() {
         Object[] newElements = new Object[count];
-        for (int i = 0; i < count; i++) {
-            newElements[i] = elements[i];
-        }
+        copyArray(elements, 0, newElements, 0, count);
         return newElements;
     }
 }

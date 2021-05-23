@@ -14,6 +14,13 @@ public class TestMain {
 
 
         System.out.println(arrayBox.get(288));
+        System.out.println(arrayBox.size());
+
+        arrayBox.remove(288);
+        System.out.println(arrayBox.get(288));
+        System.out.println(arrayBox.size());
+
+
 
     }
 }
