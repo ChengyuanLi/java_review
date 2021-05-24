@@ -1,0 +1,16 @@
+
+—
+java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¶°óƒ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(î‘¤Îøÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(€ÖÃİ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ŠÈã øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ÁñÉ€ÿÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(î‘¤Îøÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÌÌ¦
+7	java:S131""Add a default case to this switch.(’ÎÁÄ
+1
+java:S1116"Remove this empty statement.( ŒÒ0
+1
+java:S1116"Remove this empty statement.( ŒÒ0
+1
+java:S1116!"Remove this empty statement.( ŒÒ0

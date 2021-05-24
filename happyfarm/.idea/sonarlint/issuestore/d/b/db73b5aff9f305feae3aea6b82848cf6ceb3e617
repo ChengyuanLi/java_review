@@ -1,0 +1,27 @@
+
+‚
+java:S1192"gDefine a constant instead of duplicating this literal "**************************************" 3 times.(î‘¤Îøÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(î‘¤Îøÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(İ£×Üûÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ó¹ÈÈ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ªçó¨úÿÿÿÿ
+N	java:S106!"9Replace this use of System.out or System.err by a logger.(áó¿‰
+S	java:S106$"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+S	java:S106'"9Replace this use of System.out or System.err by a logger.(î‘¤Îøÿÿÿÿ
+N	java:S106("9Replace this use of System.out or System.err by a logger.(ŸŞ„Ş
+S	java:S106)"9Replace this use of System.out or System.err by a logger.(Ë°©Æÿÿÿÿÿ
+N	java:S106*"9Replace this use of System.out or System.err by a logger.(–ùÀ
+S	java:S106+"9Replace this use of System.out or System.err by a logger.(î‘¤Îøÿÿÿÿ
+N	java:S106-"9Replace this use of System.out or System.err by a logger.(ÌÌ¦
+7	java:S131/""Add a default case to this switch.(’ÎÁÄ
+1
+java:S11165"Remove this empty statement.( ŒÒ0
+V	java:S1251"<This block of commented-out lines of code should be removed.(ªìëƒıÿÿÿÿ
+S	java:S1067"9Replace this use of System.out or System.err by a logger.(ùèÚÌúÿÿÿÿ
+S	java:S1069"9Replace this use of System.out or System.err by a logger.(¦ò¹òıÿÿÿÿ
+1
+java:S1116="Remove this empty statement.( ŒÒ0
+1
+java:S1116@"Remove this empty statement.( ŒÒ0
+S
+java:S1117F"8Rename "farm" which hides the field declared at line 15.(·§¨ûÿÿÿÿ

@@ -20,7 +20,7 @@ public interface Box {
      * get object in position i
      * @param i position
      * @return object
-     * @throws xxxException, when position off bound 非受检异常
+     * @throws , when position off bound 非受检异常
      */
     public Object get(int i);
 
@@ -35,7 +35,7 @@ public interface Box {
      * add position to i position
      * @param i position
      * @param object add object
-     * @throws xxxException, when position off bound 非受检异常
+     * @throws , when position off bound 非受检异常
      */
     public void add(int i, Object object);
 

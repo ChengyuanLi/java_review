@@ -1,7 +1,6 @@
 package com.oracle.test;
 
 import com.oracle.util.ArrayBox;
-import com.oracle.util.Box;
 import com.oracle.util.LinkedBox;
 
 /**

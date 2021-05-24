@@ -3,7 +3,7 @@ package com.oracle.util;
 /**
  * @author aidenli
  */
-public class LinkedBox implements Box{
+public class LinkedBox implements Box {
 
     private Node head = null;
     private Node tail = null;
