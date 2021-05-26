@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="happyfarm:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/happyfarm_jar</output-path>
+    <root id="archive" name="happyfarm.jar">
+      <element id="module-output" name="happyfarm" />
+    </root>
+  </artifact>
+</component>
