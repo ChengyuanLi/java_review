@@ -1,5 +1,10 @@
 package com.util;
 
+/**
+ * @author aidenli
+ * @see java.util.ArrayList
+ */
+@Deprecated
 public class ArrayBox implements Box{
     //以数组形式实现存储
     private int count = 0;

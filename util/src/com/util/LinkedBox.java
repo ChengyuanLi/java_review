@@ -1,5 +1,9 @@
 package com.util;
 
+/**
+ * @see java.util.LinkedList
+ */
+@Deprecated
 public class LinkedBox implements Box{
 
     private Node head;

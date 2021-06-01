@@ -2,6 +2,9 @@ package com.util;
 
 import java.util.Scanner;
 
+/**
+ * @author aidenli
+ */
 public class Input {
     private Input(){}
     public static String next() {
@@ -30,7 +33,7 @@ public class Input {
         }
     }
 
-    public static int nextRightInt(int[] area) {
+    public static int nextRightInt(int... area) {
         Scanner input = new Scanner(System.in);
         while (true) {
             try {
@@ -50,7 +53,7 @@ public class Input {
         }
     }
 
-    public static int nextRightInt(int[] area, String msg) {
+    public static int nextRightInt(String msg, int... area) {
         Scanner input = new Scanner(System.in);
         while (true) {
             try {
@@ -69,18 +72,21 @@ public class Input {
         }
     }
 
-/*    public static int nextRightInt(int start, int end) {
+    public static int nextRightInt(int start, int end) {
         Scanner input = new Scanner(System.in);
         while (true) {
             try {
                 String s = input.next();
                 int num = Integer.parseInt(s);
                 if (num >= start && num <= end) {
-
+                    return num;
                 }
-            } catch () {
-
+                System.out.println("Please enter the number in correct range.");
+                continue;
+            } catch (NumberFormatException e) {
+                System.out.println("Input integer format incorrect, please try again!");
+                continue;
             }
         }
-    }*/
+    }
 }

@@ -1,5 +1,9 @@
 package com.util;
 
+/**
+ * @see java.util.List
+ */
+@Deprecated
 public interface Box {
     boolean add(Object object);
     //返回装载元素的结果
