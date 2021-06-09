@@ -23,8 +23,12 @@ public class TestMain {
 
             Statement statement = connection.createStatement();
 
-            String sqlLogin = "SELECT * FROM T_USER WHERE UNAME='" + uname + "' AND UPASS='" + upass + "'";
+            String sqlLogin = "SELECT * FROM T_USER WHERE UNAME = ? AND UPASS = ?";
             System.out.println(sqlLogin);
+
+            PreparedStatement statement1 = connection.prepareStatement(sqlLogin);
+            statement1.setString(1, uname);
+            statement1.setString(2, upass);
 
             ResultSet rs = statement.executeQuery(sqlLogin);
 
