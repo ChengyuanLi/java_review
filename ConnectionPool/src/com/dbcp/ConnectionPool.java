@@ -1,9 +1,12 @@
 package com.dbcp;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.regex.PatternSyntaxException;
 
 /**
  * java数据库连接池
@@ -11,10 +14,12 @@ import java.util.*;
  */
 public class ConnectionPool {
 
+    public ConnectionPool(String path) {
+        this.initConnectionInfo(path);
+    }
 
     public ConnectionPool(){
-        startRecycleTimer();
-        this.init();
+        this.initConnectionInfo("database.properties");
     }
 
 
@@ -37,15 +42,31 @@ public class ConnectionPool {
     private final int MAX_TOTAL = 50;
     private final long MAX_TIMEOUT = 2000;
 
+    public void initConnectionInfo(String path) {
+        try {
+            FileInputStream fis = new FileInputStream(path);
+            Properties p = new Properties();
+            p.load(fis);
+            driver = p.getProperty("driver");
+            dbUrl = p.getProperty("url");
+            username = p.getProperty("username");
+            password = p.getProperty("password");
+        } catch (Exception e) {
+            throw new RuntimeException("no files found" + e.getMessage());
+        }
+
+        startRecycleTimer();
+        this.init();
+    }
+
     List<Connection> freepool = new Vector<Connection>();
     List<Connection> usedpool = new Vector<Connection>();
     int count = 0;
 
-
-    private String dbUrl = "jdbc:mysql://localhost:3306/lcy";
-    private String username = "root";
-    private String password = ",,,,";
-
+    private String driver;
+    private String dbUrl;
+    private String username;
+    private String password;
     private void init() {
         createConnections(MIN_CONNECTIONS);
     }

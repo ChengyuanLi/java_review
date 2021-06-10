@@ -21,7 +21,7 @@ public class Main {
                 ResultSet rs = statement.executeQuery();
                 rs.next();
                 System.out.println(i + ", " + rs.getString("cno")+ ", " + rs.getString("cname"));
-                connection.close();
+                //connection.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
