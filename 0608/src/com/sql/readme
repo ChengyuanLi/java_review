@@ -1,0 +1,5 @@
+使用sql-pool，要求在工程根目录中定义db-config.properties文件。
+driver =
+url =
+username =
+password =

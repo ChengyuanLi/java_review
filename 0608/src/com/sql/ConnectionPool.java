@@ -14,21 +14,38 @@ public class ConnectionPool {
         this.init();
     }
 
+
+    private final FreeConnectionRecyler recyler = new FreeConnectionRecyler();
+
+
+
+    public void startRecycleTimer() {
+
+        Manager manager = new Manager();
+        manager.setDaemon(true);
+        manager.setPriority(8);
+        manager.start();
+        Timer t = new Timer();
+        t.schedule(recyler, 0, 500);
+
+    }
+
+    private final int MIN_IDLE = 5;
+    private final int MAX_TOTAL = 50;
+
     List<Connection> freePool = new Vector<Connection>();
     List<Connection> usedPool = new Vector<Connection>();
+    int count = 0;
 
     private void init() {
         createConnections(10);
     }
 
-    private final FreeConnectionRecyler recyler = new FreeConnectionRecyler();
-
-    public void startRecycleTimer() {
-        Timer t = new Timer();
-        t.schedule(recyler, 0, 500);
-    }
-
     private void createConnections(int count) {
+        if(this.count == MAX_TOTAL) {
+            return;
+        }
+        count = Math.min(MAX_TOTAL-this.count, this.count);
         for (int i = 0; i < count; i++) {
             try {
                 Connection connection = DriverManager.getConnection(
@@ -38,6 +55,7 @@ public class ConnectionPool {
                 );
                 ConnectionProxy connectionProxy = new ConnectionProxy(connection);
                 freePool.add(connectionProxy);
+                this.count++;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -72,15 +90,37 @@ public class ConnectionPool {
         }
     }
 
+    class Manager extends Thread{
+        @Override
+        public void run() {
+            while (true) {
+                this.checkFreeCount();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        public void checkFreeCount() {
+            if (freePool.size() < MIN_IDLE) {
+                createConnections(10);
+            }
+        }
+    }
+
     class FreeConnectionRecyler extends TimerTask {
 
         public void recycle() throws SQLException {
             Iterator<Connection> iterator = usedPool.iterator();
-            while (iterator.hasNext()) {
+            for (;iterator.hasNext();) {
                 Connection connection = iterator.next();
-                iterator.remove();
-                freePool.add(connection);
-                break;
+                if (connection.isClosed()) {
+                    iterator.remove();
+                    freePool.add(connection);
+                    break;
+                }
             }
         }
 
