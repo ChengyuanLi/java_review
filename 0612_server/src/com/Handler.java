@@ -39,6 +39,10 @@ public class Handler implements Runnable{
 
     private void parseAndExcute(String content) {
         System.out.println(content);
+        content = content.trim();
+        if (content.equals("/")) {
+            content += "default";
+        }
         this.response2Browser();
     }
 
