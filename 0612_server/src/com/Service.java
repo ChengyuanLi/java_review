@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Main {
+public class Service {
 
     public static void main(String[] args) {
 	// write your code here
-        new Main().start();
+        new Service().start();
     }
 
     private void start() {
