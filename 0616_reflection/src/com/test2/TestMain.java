@@ -3,6 +3,7 @@ package com.test2;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class TestMain {
     public static void main(String[] args) {
@@ -11,11 +12,19 @@ public class TestMain {
         try {
             clazz = Class.forName(className);
             Constructor constructor = clazz.getConstructor(int.class);
-            Object obj = constructor.newInstance(30);
+            Object obj = constructor.newInstance(100);
             Field f = clazz.getDeclaredField("i");
-            Object o = f.get(obj);
+            f.setAccessible(true);
+            f.set(obj, 60); // set value
+            Object o = f.get(obj); // get value
+            f.setAccessible(false);
             System.out.println(o);
             System.out.println(obj);
+
+
+            Method m = clazz.getDeclaredMethod("t1");
+            m.invoke(obj);
+
         } catch (ClassNotFoundException |
                 NoSuchMethodException |
                 InstantiationException |
@@ -28,7 +37,7 @@ public class TestMain {
     }
 }
 
-    class A {
+    class  A {
 
         public A() {
         }
@@ -40,7 +49,7 @@ public class TestMain {
         private int i = 10;
 
         public void t1() {
-            System.out.println(i);
+            System.out.println("t1()方法 + " + i);
         }
 
         @Override
