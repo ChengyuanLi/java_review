@@ -11,6 +11,14 @@ public class Browser {
         new Browser().open();
     }
 
+    /**
+     * ip:port/content
+     * ip:port ==> ip:port/
+     * 127.0.0.1:6666/hello
+     * content combined with content and variables(uname, upass)
+     * content and variable will be suprated with "?"
+     * 127.0.0.1:6666/login?uname=lcy&upass=123
+     */
     private void open() {
         System.out.print("URL:");
         String url = Input.nextLine();
