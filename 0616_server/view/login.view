@@ -1,5 +1,6 @@
 ********************************
 *             web              *
 ********************************
-username:
-password:
+username:[input <uname>]
+password:[input <upass>]
+[from <login>]
