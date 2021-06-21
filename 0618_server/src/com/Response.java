@@ -6,7 +6,7 @@ import java.io.FileReader;
 
 public class Response {
 
-    private StringBuilder content = new StringBuilder();
+    StringBuilder content = new StringBuilder();
 
     public void append(String str) {
         content.append(str);

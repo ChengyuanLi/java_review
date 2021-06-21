@@ -33,6 +33,11 @@ public class Controller {
     public static void mapping(Request request, Response response) {
         String className = p.getProperty(request.getRequestContent());
 
+        if (className == null || className.equals("")) {
+            response.sendDir(request.getRequestContent());
+            return;
+        }
+
         try {
 
             Class clazz = Class.forName(className);

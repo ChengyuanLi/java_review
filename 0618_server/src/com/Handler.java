@@ -16,6 +16,11 @@ public class Handler implements Runnable{
         this.client = client;
     }
 
+    @Override
+    public void run() {
+        this.w8AndReadFromBrowser();
+    }
+
     //输入
     private void w8AndReadFromBrowser() {
         try {
@@ -49,7 +54,7 @@ public class Handler implements Runnable{
         }
         content = content.substring(1);
 
-        String requestContnet = null;
+        String requestContnet = "";
         Map<String, String> params = new HashMap<>();
 
         int i1 = content.indexOf("?");
@@ -71,6 +76,7 @@ public class Handler implements Runnable{
         Response response = new Response();
         Controller.mapping(request, response);
 
+        this.response2B(response.content.toString());
     }
 
     private void response2B(String content) {
@@ -87,8 +93,5 @@ public class Handler implements Runnable{
     }
 
 
-    @Override
-    public void run() {
-        this.w8AndReadFromBrowser();
-    }
+
 }

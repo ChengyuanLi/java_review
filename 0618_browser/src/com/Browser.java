@@ -133,7 +133,6 @@ public class  Browser {
             }
 
             if("from".equals(tag) || tag.startsWith("from ")) {
-                String value = Input.nextLine();
                 int i3 = tag.indexOf("<");
                 int i4 = tag.indexOf(">");
                 if (i3 != -1 && i4 != -1) {
@@ -142,7 +141,6 @@ public class  Browser {
             }
 
             if("menus".equals(tag) || tag.startsWith("menus ")) {
-                String value = Input.nextLine();
                 int i3 = tag.indexOf("<");
                 int i4 = tag.indexOf(">");
                 if (i3 != -1 && i4 != -1) {
@@ -153,7 +151,12 @@ public class  Browser {
                     for (String s : menuStr) {
                         String[] textAndReq = s.split(":");
                         System.out.println(textAndReq[0]);
-                        reqs.add(textAndReq[1]);
+                        try {
+                            reqs.add(textAndReq[1]);
+                        } catch (ArrayIndexOutOfBoundsException e) {
+                            break;
+                        }
+
                     }
                     System.out.print("please select input: ");
                     int num = Input.nextRightInt();
