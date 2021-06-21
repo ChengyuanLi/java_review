@@ -1,10 +1,8 @@
 package com;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,6 +71,19 @@ public class Handler implements Runnable{
         Response response = new Response();
         Controller.mapping(request, response);
 
+    }
+
+    private void response2B(String content) {
+        try {
+            OutputStream outputStream = client.getOutputStream();
+            BufferedOutputStream bos = new BufferedOutputStream(outputStream);
+
+            bos.write(content.getBytes(StandardCharsets.UTF_8));
+            bos.write("[over]".getBytes(StandardCharsets.UTF_8));
+            bos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -32,15 +32,6 @@ public class Controller {
 
     public static void mapping(Request request, Response response) {
         String className = p.getProperty(request.getRequestContent());
-        if (className == null || className.equals("")) {
-            //no relation -->> file resource request
-            File file = new File(className);
-            if (!file.exists()) {
-                response.append(request.getRequestContent() + " -> File does not exit!");
-            }
-            response.sendDir(request.getRequestContent());
-            return;
-        }
 
         try {
 

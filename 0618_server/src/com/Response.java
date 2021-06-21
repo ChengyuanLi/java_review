@@ -1,5 +1,6 @@
 package com;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
@@ -13,6 +14,13 @@ public class Response {
 
     public void sendDir(String path) {
         try {
+
+            File file = new File(path);
+            if (!file.exists()) {
+                this.content.append(path + " -> File does not exit!");
+                return;
+            }
+
             FileReader r = new FileReader(path);
             while (true) {
                 int c = r.read();

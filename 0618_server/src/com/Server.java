@@ -14,24 +14,20 @@ public class Server {
     private void start() {
 
         System.out.println("Server starting...");
-        ServerSocket server = null;
 
         try {
-            server = new ServerSocket(6666);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
+            ServerSocket server = new ServerSocket(6666);
             while (true) {
                 Socket client = server.accept();
                 Handler h = new Handler(client);
                 Thread t = new Thread(h);
                 t.start();
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
 }
