@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="0618_browser:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/0618_browser_jar</output-path>
+    <root id="archive" name="0618_browser.jar">
+      <element id="module-output" name="0618_browser" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../util/out/artifacts/util_jar/util.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

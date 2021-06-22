@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="0618_browser">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../0618_browser/out/artifacts/0618_browser_jar/0618_browser.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
