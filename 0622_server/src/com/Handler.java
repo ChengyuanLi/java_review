@@ -14,6 +14,8 @@ public class Handler implements Runnable{
     }
 
     private Socket client;
+    private String sessionId;
+
     public Handler(Socket client) {
         super();
         this.client = client;
@@ -43,6 +45,14 @@ public class Handler implements Runnable{
     }
 
     private void parseRequest(String content) {
+        /**
+         * find session id
+         */
+        String[] ss = content.split("#");
+        this.sessionId = ss[1];
+        content = ss[0];
+
+
         if (content.equals("/")) {
             content += "default";
         }
@@ -66,6 +76,13 @@ public class Handler implements Runnable{
         }
 
         Request request = new Request(requestContent, params, client.getInetAddress());
+        // get or create session
+        Session session = SessionManager.getSession(sessionId);
+        this.sessionId = session.getSessionId();
+        request.setSession(session);
+
+
+
         Response response = new Response();
 
         Controller.mapping(request, response);
@@ -76,7 +93,12 @@ public class Handler implements Runnable{
         try {
             OutputStream os = client.getOutputStream();
             os.write(content.getBytes(StandardCharsets.UTF_8));
+
+            String sid = "#" + this.sessionId;
+            os.write(sid.getBytes(StandardCharsets.UTF_8));
+
             os.flush();
+            client.shutdownOutput();
         } catch (Exception e) {
             e.printStackTrace();
         }

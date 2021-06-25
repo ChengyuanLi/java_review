@@ -23,6 +23,7 @@ public class Browser {
     private int port;
     private String content;
     private Socket client;
+    private String sessionId = "zzz";
 
     public static void main(String[] args) {
         new Browser().open();
@@ -66,6 +67,12 @@ public class Browser {
         try {
             OutputStream os = client.getOutputStream();
             os.write(content.getBytes(StandardCharsets.UTF_8));
+
+            //add session ID
+            String sid = (this.sessionId == null || "".equals(this.sessionId))?"":this.sessionId;
+            sid = "#" + sid;
+            os.write(sid.getBytes(StandardCharsets.UTF_8));
+
             os.flush();
             client.shutdownOutput();
 
@@ -79,13 +86,23 @@ public class Browser {
     private void w84Response() {
         try {
             InputStream is = client.getInputStream();
-            char[] cs = new char[is.available()];
             Reader r = new InputStreamReader(is);
 
-            int length = r.read(cs);
-            String content = new String(cs, 0, length);
+            StringBuilder content = new StringBuilder();
+            while (true) {
+                int c = r.read();
+                if (c == -1) {
+                    break;
+                }
+                content.append((char) c);
+            }
 
-            this.show(content);
+            //manage session id
+            String[] ss = content.toString().split("#");
+
+            this.sessionId = ss[1];
+
+            this.show(ss[0]);
 
         } catch (IOException e) {
             e.printStackTrace();

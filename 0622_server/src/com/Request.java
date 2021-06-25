@@ -8,6 +8,7 @@ public class Request {
     private String requestContent;
     private Map<String, String> params;
     private InetAddress ip;
+    private Session session;
 
     public Request() {
     }
@@ -46,5 +47,11 @@ public class Request {
         return params.get(key);
     }
 
+    public Session getSession() {
+        return session;
+    }
 
+    void setSession(Session session) {
+        this.session = session;
+    }
 }
